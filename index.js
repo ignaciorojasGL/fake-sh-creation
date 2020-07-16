@@ -4,7 +4,6 @@ const faker = require("faker");
 const apiUrl = "https://dev-api.astrella.com/api/";
 
 const myArgs = process.argv.slice(2);
-console.log("myArgs: ", myArgs);
 
 const consoleEmail = myArgs
   .find(arg => -1 !== arg.indexOf("email="))
@@ -81,7 +80,7 @@ axios
         })
         .then(response => {
           console.log(
-            newStakeholder.FirstName + " " + newStakeholder.LastName + "Created"
+            newStakeholder.FirstName + " " + newStakeholder.LastName + " Created"
           );
         })
         .catch(error => {
