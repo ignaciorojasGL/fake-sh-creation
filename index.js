@@ -25,14 +25,14 @@ const consoleCodePrefix = myArgs
   .find(arg => -1 !== arg.indexOf("codePrefix="))
   .split("codePrefix=")[1];
 
-console.log("consoleEmail:", consoleEmail);
-console.log("consolePass:", consolePass);
-console.log("consoleAsOfDate:", consoleAsOfDate);
-console.log("consoleDomain:", consoleDomain);
-console.log("consoleStakeholderCount:", consoleStakeholderCount);
-console.log("consoleCodePrefix:", consoleCodePrefix);
+console.log("Email:", consoleEmail);
+console.log("Pass:", consolePass);
+console.log("AsOfDate:", consoleAsOfDate);
+console.log("Domain:", consoleDomain);
+console.log("StakeholderCount:", consoleStakeholderCount);
+console.log("CodePrefix:", consoleCodePrefix);
 
-const generateFakeStakeholderData = (domain = "aastrella.com", code = 1) => {
+const generateFakeStakeholderData = (domain, code) => {
   const firstName = faker.name.firstName();
   const lastName = faker.name.lastName();
   const email = (firstName[0] + lastName + "@" + domain).toLowerCase();
@@ -67,7 +67,10 @@ axios
     console.log(`WELCOME: ${response.data.fullName}!!!`);
 
     for (let i = 0; i < consoleStakeholderCount; i++) {
-      const newStakeholder = generateFakeStakeholderData(consoleDomain, i);
+      const newStakeholder = generateFakeStakeholderData(
+        consoleDomain,
+        consoleCodePrefix + "" + i
+      );
 
       axios
         .post(`${apiUrl}Stakeholder`, newStakeholder, {
