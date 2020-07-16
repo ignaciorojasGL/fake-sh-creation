@@ -9,4 +9,5 @@ A script to create random stakeholders
 ```node index.js email=ignacio.rojas@gorillalogic.com pass=Password123_ asOfDate=1996-08-18 domain=aastrella.com stakeholderCount=10 codePrefix=200```
 
 # Note
-It's possible to have duplicated emails, so look at that :) 
+- It's possible to have duplicated emails, so look at that :) 
+- If use this for huge amounts of data (i.e > 100) the user can be blocked, so take care
